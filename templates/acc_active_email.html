@@ -1,0 +1,5 @@
+
+                    <h1>Hi {{ user }},</h1>
+                    Please click on the link to confirm your registration,
+                    http://{{ domain }}{% url 'accounts:activate' uidb64=uid token=token %}
+                  

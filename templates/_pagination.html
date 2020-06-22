@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+<head>
+<link rel="stylesheet" href="{% static 'theam/css/pagination.css' %}">
+</head>
+<body>
+<div class="pagination">
+    {% if items.has_previous %}
+        <a class="pagination-action" href="?page=1">
+            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+        </a>
+        <a class="pagination-action" href="?page={{ items.previous_page_number }}">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </a>
+    {% endif %}
+    <span class="pagination-current">{{ items.number }}</span>
+    <span class="pagination-of">of</span>
+    <span class="pagination-total">{{ items.paginator.num_pages }}</span>
+    {% if items.has_next %}
+        <a class="pagination-action" href="?page={{ items.next_page_number }}">
+            <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+        <a class="pagination-action" href="?page={{ items.paginator.num_pages }}">
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </a>
+    {% endif %}
+</div>
+</body>
+</html>
